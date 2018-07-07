@@ -31,18 +31,21 @@ public class WarDeeViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.iv_wardee)
     ImageView ivWardee;
 
+    WarDeeVO mWarDee;
+
     public WarDeeViewHolder(View itemView, final WarDeeDelegate warDeeDelegate) {
         super(itemView);
         ButterKnife.bind(this,itemView);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                warDeeDelegate.tapWarDees();
+                warDeeDelegate.tapWarDees(mWarDee);
             }
         });
     }
 
     public void bindData(WarDeeVO warDeeVO){
+        mWarDee=warDeeVO;
         tvWarDeeName.setText(warDeeVO.getWarDeeName());
         tvTaste.setText(warDeeVO.getGeneralTastes().get(0).getTaste());
         tvCost.setText(tvCost.getContext().getResources().getString(R.string.cost_price,warDeeVO.getPriceRangeMin(),warDeeVO.getPriceRangeMax()));

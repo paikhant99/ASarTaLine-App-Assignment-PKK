@@ -1,5 +1,6 @@
 package com.padcmyanmar.asartaline_app_assignment_pkk.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import com.padcmyanmar.asartaline_app_assignment_pkk.R;
 import com.padcmyanmar.asartaline_app_assignment_pkk.adapters.WarDeeAdapter;
 import com.padcmyanmar.asartaline_app_assignment_pkk.data.models.WarDeeModel;
+import com.padcmyanmar.asartaline_app_assignment_pkk.data.vos.WarDeeVO;
 import com.padcmyanmar.asartaline_app_assignment_pkk.delegates.WarDeeDelegate;
 import com.padcmyanmar.asartaline_app_assignment_pkk.events.SuccessGetWarDeeEvent;
+import com.padcmyanmar.asartaline_app_assignment_pkk.utils.ASarTalineConstants;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -18,7 +21,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements WarDeeDelegate{
+public class MainActivity extends BaseActivity implements WarDeeDelegate{
 
     @BindView(R.id.rv_wardees)
     RecyclerView rvWardees;
@@ -68,7 +71,9 @@ public class MainActivity extends AppCompatActivity implements WarDeeDelegate{
     }
 
     @Override
-    public void tapWarDees() {
-
+    public void tapWarDees(WarDeeVO warDee) {
+        Intent intent=new Intent(getApplicationContext(),WardeeDetailsActivity.class);
+        intent.putExtra(ASarTalineConstants.WAR_DEE_ID,warDee.getWarDeeId());
+        startActivity(intent);
     }
 }
