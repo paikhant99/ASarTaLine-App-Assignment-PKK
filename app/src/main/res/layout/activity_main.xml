@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.padcmyanmar.asartaline_app_assignment_pkk.activities.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/appbar_height"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/appbar_height">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/restaurant_placeholder" />
+
+                <TextView
+                    android:id="@+id/tv_greeting_txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Morning,Anish"
+                    android:textColor="@color/header_text"
+                    android:textSize="@dimen/text_heading_1x"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="It's time for breakfast."
+                    android:layout_below="@id/tv_greeting_txt1"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textColor="@color/secondary_text"
+                    android:layout_alignLeft="@id/tv_greeting_txt1"/>
+
+            </RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        app:cardElevation="5dp"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffae42"
+                android:scaleType="center"
+                android:src="@drawable/ic_location_24dp" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="#FFFFFF"
+                android:drawableRight="@drawable/ic_search_24dp"
+                android:hint="Search Restaurants"
+                android:padding="@dimen/margin_medium_2" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/layout_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_noodles"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/noodles" />
+
+                <TextView
+                    android:id="@+id/tv_noodles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_noodles"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="CHINESE"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_taco"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/taco" />
+
+                <TextView
+                    android:id="@+id/tv_taco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_taco"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="TACOS"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_burger"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/hamburger" />
+
+                <TextView
+                    android:id="@+id/tv_burger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_burger"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="BURGER"
+                    android:textColor="@color/secondary_text"
+
+                    android:textSize="@dimen/text_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_donut"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/donut" />
+
+                <TextView
+                    android:id="@+id/tv_donut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_donut"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="DONUT"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_offer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_items"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:text="OFFERS"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_wardees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_offer_text"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium" />
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
